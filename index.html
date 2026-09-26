@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl"><!-- starting language; lang.js switches it -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Invited</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- FLOWER GARLAND — drawn once here, reused above and below the words.
+     Edit the colours/shapes here and both garlands change. -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="flower-garland" viewBox="0 0 600 70">
+    <!-- vine and stems -->
+    <g fill="none" stroke="#a3b795" stroke-width="1.6" stroke-linecap="round" opacity=".85">
+      <path d="M12 44 C 90 16, 170 58, 250 36 S 395 14, 452 40 S 545 56, 588 40"/>
+      <path d="M120 34 q -16 -12 -34 -12"/>
+      <path d="M300 44 q 18 -16 40 -18"/>
+      <path d="M470 36 q 16 -14 38 -14"/>
+    </g>
+    <!-- leaves -->
+    <g fill="#b3c4a5" opacity=".9">
+      <ellipse cx="86" cy="22" rx="11" ry="4.6" transform="rotate(-26 86 22)"/>
+      <ellipse cx="196" cy="46" rx="10" ry="4.2" transform="rotate(20 196 46)"/>
+      <ellipse cx="256" cy="26" rx="11" ry="4.6" transform="rotate(-18 256 26)"/>
+      <ellipse cx="344" cy="24" rx="10" ry="4.2" transform="rotate(-34 344 24)"/>
+      <ellipse cx="402" cy="48" rx="11" ry="4.6" transform="rotate(24 402 48)"/>
+      <ellipse cx="510" cy="22" rx="10" ry="4.2" transform="rotate(-28 510 22)"/>
+      <ellipse cx="556" cy="50" rx="9" ry="4" transform="rotate(18 556 50)"/>
+    </g>
+    <!-- buds -->
+    <g>
+      <circle cx="66" cy="38" r="5" fill="#F4D5D8"/><circle cx="66" cy="38" r="2.4" fill="#E8B4B8"/>
+      <circle cx="228" cy="22" r="4.6" fill="#F4D5D8"/><circle cx="228" cy="22" r="2.2" fill="#E8B4B8"/>
+      <circle cx="384" cy="20" r="5" fill="#F4D5D8"/><circle cx="384" cy="20" r="2.4" fill="#E8B4B8"/>
+      <circle cx="534" cy="46" r="4.6" fill="#F4D5D8"/><circle cx="534" cy="46" r="2.2" fill="#E8B4B8"/>
+    </g>
+    <!-- roses -->
+    <g>
+      <g transform="translate(150 32)">
+        <circle r="10" fill="#E8B4B8"/><circle r="6.4" fill="#DDA3AA"/><circle r="2.8" fill="#C98A90"/>
+        <path d="M-4 1 a4 4 0 1 1 4 4" fill="none" stroke="#C98A90" stroke-width="1" opacity=".8"/>
+      </g>
+      <g transform="translate(300 42)">
+        <circle r="12" fill="#E8B4B8"/><circle r="7.6" fill="#DDA3AA"/><circle r="3.4" fill="#C98A90"/>
+        <path d="M-5 1 a5 5 0 1 1 5 5" fill="none" stroke="#C98A90" stroke-width="1.1" opacity=".8"/>
+      </g>
+      <g transform="translate(468 34)">
+        <circle r="10" fill="#E8B4B8"/><circle r="6.4" fill="#DDA3AA"/><circle r="2.8" fill="#C98A90"/>
+        <path d="M-4 1 a4 4 0 1 1 4 4" fill="none" stroke="#C98A90" stroke-width="1" opacity=".8"/>
+      </g>
+    </g>
+  </symbol>
+</svg>
+
+<!-- envolop open -->
+<div id="doors" class="door-wrapper">
+  <video muted playsinline id="door-video">
+    <source src="video/envelope.mp4" type="video/mp4">
+  </video> 
+  
+  <div class="door-overlay">
+    <div class="door-hint" data-i18n="tapToOpen">✦ TAP TO OPEN ✦</div>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<button class="music" id="musicBtn" aria-label="Toggle music">♪</button>
+
+<!-- LANGUAGE SWITCHER — translations live in lang.js -->
+<div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+  <button type="button" data-lang="en" lang="en">EN</button>
+  <button type="button" data-lang="ur" lang="ur">اردو</button>
+  <button type="button" data-lang="de" lang="de">DE</button>
+</div>
+<audio id="audio" preload="auto" loop playsinline>
+  <source src="./music/fairytale.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline id="hero-bg-video">
+    <source src="video/curtains-bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <!-- 1. Bismillah Arabic (White Color) -->
+    <div class="bismillah-arabic" style="font-size: 1.8rem; margin-bottom: 0.2rem; font-family: 'Amiri', 'Traditional Arabic', serif; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+      بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+    </div>
+
+    <!-- 2. English Translation (White Color) -->
+    <div class="bismillah-english" data-i18n="bismillahMeaning" style="font-size: 0.75rem; letter-spacing: 1.5px; opacity: 0.9; margin-bottom: 1.2rem; text-transform: uppercase; color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">
+      In the name of Allah, the Most Gracious, the Most Merciful
+    </div>
+
+    <!-- 3. Custom Quote -->
+    <p class="tag" data-i18n="quote" style="max-width: 480px; margin: 1rem auto 0 auto; line-height: 1.5; text-transform: none; font-style: italic;">
+      A beautiful chapter of our lives is about to begin, and we would be honored to have you with us.
+    </p>
+
+
+
+
+    <!-- Names Section -->
+    <h1 class="names">
+      <span class="first-name" data-i18n="name1">Abdul Wasay</span>
+      <span class="amp">&amp;</span>
+      <span class="second-name" data-i18n="name2">Hadiqa</span>
+    </h1>
+
+
+  </div>
+
+  <div class="scroll-cue">
+  <span data-i18n="scrollDown">SCROLL DOWN</span>
+  <span class="arrow">↓</span>
+</div>
+</section>
+<!-- STORY -->
+<section class="block host-invitation-block">
+  <div class="hosts-container">
+    <h3 class="host-name" data-i18n="host1">Mr. &amp; Mrs. Khalid Masood</h3>
+    <p class="family-tag" data-i18n="alongWith">ALONG WITH</p>
+    <h3 class="host-name" data-i18n="host2">Mr. &amp; Mrs. Sabir Khan</h3>
+  </div>
+
+  <p class="family-tag" data-i18n="withFamilies">And Together With Their Families</p>
+
+  <h2 class="invite-heading" data-i18n="invitesYou">Invites You</h2>
+  <p class="invite-subheading" data-i18n="toJoinUs">TO JOIN US</p>
+
+  <div class="invite-details">
+    <p class="ceremony-text" data-i18n="line1">for the Nikkah and Valima ceremony</p>
+    <p class="ceremony-text" data-i18n="line2">of our beloved Son & Daughter</p>
+    
+    <p class="quote-text" data-i18n="line3">We would be honoured to have you witness</p>
+    <p class="ceremony-text" data-i18n="line4">the moment they say</p>
+    <div class="qabool-text" data-i18n="qabool">"Qabool Hai"</div>
+  </div>
+</section>
+
+<!-- SCRATCH / SAVE THE DATE SECTION -->
+<section class="block">
+  <div class="eyebrow" data-i18n="saveTheDate">SAVE THE DATE</div>
+  <h2 style="font-family: 'Playfair Display', serif !important; font-style: italic !important; font-weight: 600 !important; color: #7a4b56 !important;">
+  <span data-i18n="scratchToReveal">Scratch to Reveal</span>
+  </h2>
+  <div class="divider"></div>
+
+  <div class="scratch-wrap">
+    <div class="scratch-under">
+      <div class="event-block">
+        <div class="event-title" data-i18n="nikkahRukhsatiCaps">NIKKAH & RUKHSATI</div>
+        <div class="d-date" data-i18n="date1">29 January 2027</div>
+        <div class="d-hijri" data-i18n="hijri1">21 Sha‘ban 1448 AH</div>
+      </div>
+      
+      <div class="event-divider"></div>
+
+      <div class="event-block">
+        <div class="event-title" data-i18n="receptionCaps">RECEPTION</div>
+        <div class="d-date" data-i18n="date2">31 January 2027</div>
+        <div class="d-hijri" data-i18n="hijri2">23 Sha‘ban 1448 AH</div>
+      </div>
+    </div>
+    
+    <!-- Scratch Cover Canvas -->
+    <canvas id="scratch"></canvas>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="block">
+  <div class="eyebrow" data-i18n="momentApproaches">THE MOMENT APPROACHES</div>
+  <h2 style="font-family: 'Playfair Display', serif !important; font-style: italic !important; font-weight: 600 !important; color: #7a4b56 !important;">
+  <span data-i18n="countdownTitle">Nikkah Countdown</span>
+  </h2>
+  <div class="countdown" id="countdown">
+    <div class="cd-cell"><div class="cd-num" id="dd">00</div><div class="cd-lab" data-i18n="days">DAYS</div></div>
+    <div class="cd-cell"><div class="cd-num" id="hh">00</div><div class="cd-lab" data-i18n="hours">HOURS</div></div>
+    <div class="cd-cell"><div class="cd-num" id="mm">00</div><div class="cd-lab" data-i18n="minutes">MINUTES</div></div>
+    <div class="cd-cell"><div class="cd-num" id="ss">00</div><div class="cd-lab" data-i18n="seconds">SECONDS</div></div>
+  </div>
+</section>
+
+<!-- A FEW WORDS -->
+<section class="block words-block">
+  <svg class="garland" viewBox="0 0 600 70" aria-hidden="true" focusable="false"><use href="#flower-garland"/></svg>
+
+  <h2 style="font-family: 'Playfair Display', serif !important; font-style: italic !important; font-weight: 600 !important; color: #7a4b56 !important;">
+  <span data-i18n="wordsTitle">A few words before we begin</span>
+  </h2>
+
+  <div class="words-card">
+    <p data-i18n="words1">Islam made marriage simple and light, easy, and without hardship. Over time our customs carried it far from that simplicity, and made it difficult and expensive.</p>
+    <p data-i18n="words2">The Prophet Muhammad (peace be upon him) said that marriage completes half of one's faith. The other half, as I understand it, is that we keep learning and growing better together.</p>
+    <p data-i18n="words3">This journey is about building something from nothing, facing hardship side by side, and finding joy in small victories, not about an exchange of goods.</p>
+    <p data-i18n="words4">The world is changing, and we should think again about our customs, so that weddings stay simple and full of joy.</p>
+    <p class="words-ameen" data-i18n="words5">May Allah make it easy for everyone. Ameen.</p>
+  </div>
+
+  <svg class="garland garland-bottom" viewBox="0 0 600 70" aria-hidden="true" focusable="false"><use href="#flower-garland"/></svg>
+</section>
+
+<!-- DETAILS nikkahRukhsati-->
+<section class="block">
+  <h2 style="font-family: 'Playfair Display', serif !important; font-style: italic !important; font-weight: 600 !important; color: #7a4b56 !important;">
+  <span data-i18n="nikkahRukhsati">Nikkah &amp; Rukhsati</span>
+</h2>
+  <p style="margin-bottom: 20px;">
+  <span style="color: #2c2c2c !important; font-family: 'Cinzel', serif !important; font-style: normal !important; font-size: 0.85rem !important; font-weight: 400 !important; letter-spacing: 0.35em !important; text-transform: uppercase !important;">
+    <span data-i18n="whenWhere">WHEN &amp; WHERE</span>
+  </span>
+</p>
+  <div class="facts">
+    <div class="fact"><div class="t" data-i18n="nikkah">NIKKAH</div><div class="v" data-i18n="nikkahTime">5:00 PM</div><div class="s" data-i18n="nikkahNote">Mosque TBD</div></div>
+    <div class="fact"><div class="t" data-i18n="dinner">DINNER</div><div class="v" data-i18n="dinnerTime">8:00 PM</div><div class="s" data-i18n="dinnerNote">Banquet hall</div></div>
+    <div class="fact"><div class="t" data-i18n="rukhsati">RUKHSATI</div><div class="v" data-i18n="rukhsatiTime">10:00 PM</div><div class="s" data-i18n="rukhsatiNote">With warm wishes & prayers</div></div>
+  </div>
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4456.268638578951!2d67.14891257604569!3d24.80906304731105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33b1b5826b29b%3A0x1c39d534b26aac54!2sRoyal%20Marquee!5e1!3m2!1sen!2sde!4v1790421598338!5m2!1sen!2sde" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Venue map"></iframe>
+  </div>
+
+  <!-- Venue video. The icon sits outside the translated span so it is not
+       part of the text that lang.js swaps. -->
+  <a class="venue-video" href="https://youtu.be/bsfYK0LdV8o"
+     target="_blank" rel="noopener noreferrer">
+    <span class="venue-video-icon" aria-hidden="true">&#9654;</span>
+    <span data-i18n="venueVideo">See the venue video</span>
+  </a>
+</section>
+
+<!-- WALIMA RECEPTION SECTION -->
+<section class="block">
+  <h2 style="font-family: 'Playfair Display', serif !important; font-style: italic !important; font-weight: 600 !important; color: #7a4b56 !important;">
+  <span data-i18n="walimaTitle">Walima Reception</span>
+  </h2>
+ <p style="margin-bottom: 20px;">
+  <span style="color: #2c2c2c !important; font-family: 'Cinzel', serif !important; font-style: normal !important; font-size: 0.85rem !important; font-weight: 400 !important; letter-spacing: 0.35em !important; text-transform: uppercase !important;">
+    <span data-i18n="whenWhere">WHEN &amp; WHERE</span>
+  </span>
+</p>
+  <div class="facts">
+    <div class="fact"><div class="t" data-i18n="reception">RECEPTION</div><div class="v" data-i18n="receptionTime">4:00 PM</div><div class="s" data-i18n="receptionNote">Guest arrival &amp; welcome</div></div>
+    <div class="fact"><div class="t" data-i18n="walimaDinner">DINNER</div><div class="v" data-i18n="walimaDinnerTime">7:00 PM</div><div class="s" data-i18n="walimaDinnerNote">Grand dinner served</div></div>
+  </div>
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4451.504458578913!2d67.1160740152005!3d24.941245586238097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338bd455009f9%3A0x2158318ca8b98004!2sStaff%20Club!5e1!3m2!1sen!2sde!4v1790422116281!5m2!1sen!2sde" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Venue map"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="fnames" data-i18n="footerLine">We can't wait to celebrate with you.</div>
+  <a class="credit-line" href="https://www.instagram.com/hw.invites/"
+     target="_blank" rel="noopener noreferrer" aria-label="H&amp;W Invites on Instagram">
+    <span data-i18n="credit">Digital Invitation by: H&amp;W Invites</span>
+    <svg class="insta-icon" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" focusable="false">
+      <rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4"
+            fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/>
+    </svg>
+  </a>
+</footer>
+
+<script src="lang.js"></script>
+<script src="music.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
