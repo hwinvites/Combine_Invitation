@@ -738,6 +738,34 @@ h1, h2, h3, h4,
   color: #7a4b56 !important;
 }
 
+/* ===================================================
+   EXACT MATCH: INVITES YOU & SCRATCH TO REVEAL FONT
+=================================================== */
+
+.host-invitation-block .script-invite,
+.host-invitation-block h2.script-heading,
+.script-heading {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  font-size: 2.8rem !important;
+  color: #7a4b56 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  margin-top: 0.3rem !important;
+  margin-bottom: 0.2rem !important;
+  text-align: center !important;
+}
+
+/* Urdu Language Font Adjustments */
+html[lang="ur"] .host-invitation-block .script-invite,
+html[lang="ur"] .script-heading {
+  font-family: 'Nastaliq', 'Jameel Noori Nastaliq', 'Urdu Typesetting', serif !important;
+  font-style: normal !important;
+  font-size: 2.2rem !important;
+}
+
 /* ---------- LANGUAGE SWITCHER ---------- */
 .lang-switch{
   position:fixed;bottom:1.2rem;left:1.2rem;
